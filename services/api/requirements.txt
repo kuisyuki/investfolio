@@ -1,0 +1,44 @@
+# FastAPI関連
+fastapi==0.116.1
+uvicorn==0.35.0
+pydantic==2.11.7
+pydantic-settings==2.10.1
+
+# データベース関連
+sqlalchemy==2.0.43
+pymysql==1.1.1
+cryptography==41.0.7
+
+# 認証関連
+python-jose==3.5.0
+passlib==1.7.4
+python-multipart==0.0.20
+
+# 外部API関連
+httpx==0.28.1
+yfinance==0.2.65
+requests==2.32.5
+
+# スケジューリング
+apscheduler==3.11.0
+
+# キャッシュ
+redis==6.4.0
+
+# ログ関連
+structlog==25.4.0
+python-json-logger==3.3.0
+
+# 開発・テスト関連
+pytest==8.4.1
+pytest-asyncio==1.1.0
+pytest-mock==3.14.1
+black==25.1.0
+isort==6.0.1
+ruff==0.12.10
+
+# 環境変数管理
+python-dotenv==1.1.1
+
+# CORS
+fastapi-cors==0.0.6

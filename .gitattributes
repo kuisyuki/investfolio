@@ -1,0 +1,34 @@
+# Ensure shell scripts use LF line endings on all platforms
+*.sh text eol=lf
+
+# Ensure Docker files use LF line endings
+Dockerfile* text eol=lf
+docker-compose*.yml text eol=lf
+
+# Standard web files
+*.html text
+*.css text
+*.js text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
+*.md text
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Python files
+*.py text eol=lf
+*.pyi text eol=lf
+*.pyx text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
