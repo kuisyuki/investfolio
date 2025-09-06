@@ -1,0 +1,5 @@
+development:
+  dialect: mysql
+  datasource: portfolio_user:portfolio_pass@tcp(portfolio_mysql:3306)/portfolio?parseTime=true
+  dir: sql
+  table: migrations

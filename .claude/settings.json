@@ -11,7 +11,15 @@
       "Bash(gcloud projects add-iam-policy-binding:*)",
       "Bash(gcloud iam service-accounts keys create:*)",
       "Bash(curl:*)",
-      "WebFetch(domain:qiita.com)"
+      "WebFetch(domain:qiita.com)",
+      "Bash(pip install:*)",
+      "Bash(kill:*)",
+      "Bash(mysql:*)",
+      "Bash(apt-get:*)",
+      "Bash(apt-get install:*)",
+      "Bash(python:*)",
+      "Bash(uvicorn:*)",
+      "Bash(env)"
     ],
     "deny": [],
     "ask": []

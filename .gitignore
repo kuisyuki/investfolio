@@ -112,7 +112,6 @@ public
 
 # Docker
 docker/*/logs/
-*.sql
 
 # Local database files
 *.sqlite
@@ -172,3 +171,4 @@ tramp
 /services/api/__pycache__/
 /services/web/node_modules/
 /tests/__pycache__/
+.claude/settings.local.json

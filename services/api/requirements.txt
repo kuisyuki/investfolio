@@ -12,7 +12,9 @@ cryptography==41.0.7
 # 認証関連
 python-jose==3.5.0
 passlib==1.7.4
+bcrypt==4.2.1
 python-multipart==0.0.20
+email-validator==2.2.0
 
 # 外部API関連
 httpx==0.28.1

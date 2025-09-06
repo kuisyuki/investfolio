@@ -16,7 +16,7 @@ services:
       - ..:/workspace:cached
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - DATABASE_URL=mysql://portfolio_user:portfolio_pass@mysql:3306/portfolio_db
+      - DATABASE_URL=mysql://portfolio_user:portfolio_pass@mysql:3306/portfolio
       - REDIS_URL=redis://redis:6379/0
       - ELASTICSEARCH_URL=http://elasticsearch:9200
 

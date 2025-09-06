@@ -1,8 +1,10 @@
 from datetime import datetime
-from typing import Optional
-from pydantic import BaseModel
 from decimal import Decimal
 from enum import Enum
+from typing import Optional
+
+from pydantic import BaseModel
+
 
 class TransactionType(str, Enum):
     BUY = "BUY"
@@ -10,6 +12,7 @@ class TransactionType(str, Enum):
     DIVIDEND = "DIVIDEND"
     DEPOSIT = "DEPOSIT"
     WITHDRAWAL = "WITHDRAWAL"
+
 
 class Transaction(BaseModel):
     id: Optional[int] = None

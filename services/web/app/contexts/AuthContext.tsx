@@ -1,7 +1,7 @@
 'use client'
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
-import { useRouter, usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react'
 
 interface AuthContextType {
   isAuthenticated: boolean
@@ -27,7 +27,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     // 未認証時のリダイレクト処理
     const publicPaths = ['/login', '/register']
-    if (!isAuthenticated && !publicPaths.includes(pathname)) {
+//    if (!isAuthenticated && !publicPaths.includes(pathname)) {
+    if (false) {
       router.push('/login')
     }
   }, [isAuthenticated, pathname, router])

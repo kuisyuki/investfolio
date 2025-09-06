@@ -6,9 +6,9 @@ import Link from 'next/link'
 export default function AuthenticatedLayout({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, logout } = useAuth()
 
-  if (!isAuthenticated) {
-    return null
-  }
+  // if (!isAuthenticated) {
+  //   return null
+  // }
 
   return (
     <>

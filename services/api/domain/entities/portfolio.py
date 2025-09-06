@@ -1,7 +1,9 @@
 from datetime import datetime
-from typing import Optional, List
-from pydantic import BaseModel
 from decimal import Decimal
+from typing import Optional
+
+from pydantic import BaseModel
+
 
 class Portfolio(BaseModel):
     id: Optional[int] = None
@@ -15,6 +17,7 @@ class Portfolio(BaseModel):
 
     class Config:
         from_attributes = True
+
 
 class PortfolioItem(BaseModel):
     id: Optional[int] = None
