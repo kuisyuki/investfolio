@@ -18,6 +18,7 @@ export default function AuthenticatedLayout({ children }: { children: React.Reac
           <div className="flex items-center space-x-4">
             <Link href="/" className="hover:underline">ホーム</Link>
             <Link href="/portfolio" className="hover:underline">ポートフォリオ</Link>
+            <Link href="/stock-registration" className="hover:underline">持ち株の登録</Link>
             <Link href="/transactions" className="hover:underline">取引履歴</Link>
             <Link href="/analysis" className="hover:underline">分析</Link>
             <button 
