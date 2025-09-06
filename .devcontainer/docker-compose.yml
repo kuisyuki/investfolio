@@ -15,10 +15,20 @@ services:
     volumes:
       - ..:/workspace:cached
       - /var/run/docker.sock:/var/run/docker.sock
+      # Next.js最適化: node_modulesと.nextをボリュームマウント
+      - web_node_modules:/workspace/services/web/node_modules
+      - web_next_cache:/workspace/services/web/.next
+      - pnpm_store:/root/.local/share/pnpm/store
+      # Python最適化: __pycache__を除外
+      - /workspace/services/api/__pycache__
     environment:
       - DATABASE_URL=mysql://portfolio_user:portfolio_pass@mysql:3306/portfolio
       - REDIS_URL=redis://redis:6379/0
       - ELASTICSEARCH_URL=http://elasticsearch:9200
+      # Next.js開発環境の最適化
+      - WATCHPACK_POLLING=true
+      - CHOKIDAR_USEPOLLING=true
+      - NEXT_TELEMETRY_DISABLED=1
 
   # MySQL データベース
   mysql:
@@ -116,4 +126,11 @@ volumes:
   elasticsearch_data:
     driver: local
   redis_data:
+    driver: local
+  # Next.js最適化用ボリューム
+  web_node_modules:
+    driver: local
+  web_next_cache:
+    driver: local
+  pnpm_store:
     driver: local
