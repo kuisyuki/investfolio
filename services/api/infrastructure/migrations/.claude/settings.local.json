@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//workspace/services/api/presentation/schemas/**)",
+      "Read(//workspace/services/api/infrastructure/**)",
+      "Read(//workspace/services/api/**)",
+      "Read(//workspace/services/api/**)",
+      "Bash(env)",
+      "Read(//workspace/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
