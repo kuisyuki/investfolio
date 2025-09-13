@@ -36,6 +36,16 @@ export default function Home() {
           <a href="/analysis" className="text-primary-500 hover:underline">詳細を見る →</a>
         </div>
       </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <h2 className="text-2xl font-semibold mb-4 text-primary-600">持ち株の登録</h2>
+          <p className="text-gray-600 mb-4">
+            保有している株式を登録し、ポートフォリオを構築します。
+          </p>
+          <a href="/stock-registration" className="text-primary-500 hover:underline">詳細を見る →</a>
+        </div>
+      </div>
       
       <div className="mt-12 bg-gray-50 p-8 rounded-lg">
         <h2 className="text-3xl font-bold mb-6">主な機能</h2>
