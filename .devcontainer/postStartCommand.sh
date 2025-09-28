@@ -9,11 +9,18 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 PROJECT_ROOT=/workspace
 API=$PROJECT_ROOT/services/api
-WEB=$PROJECT_ROOT/services/web
 
 # Docker Composeサービスの状態確認（DevContainer統合により自動起動済み）
 echo "🐳 Docker Composeサービスの状態を確認します..."
 echo "✅ DevContainer統合により、すべてのサービスが自動起動されています。"
+
+# Serena MCPサーバーの起動
+export PATH="$HOME/.cargo/bin:$PATH"
+uvx --from git+https://github.com/oraios/serena serena start-mcp-server --transport sse --port 9121 --context ide-assistant > "${PROJECT_ROOT}/.devcontainer/serena.log" 2>&1 &
+sleep 3
+
+# Claude MCPへの登録
+claude mcp add --transport sse serena http://localhost:9121/sse || echo "Claude MCP registration skipped"
 
 # バックエンドサーバーの起動
 cd "$API" || exit
@@ -23,12 +30,10 @@ echo "✅ バックエンドサーバーがポート8000で起動中です。PID
 echo "⏳ APIサーバーの起動を待機中..."
 sleep 3
 
-# フロントエンドサーバーの手動起動用コマンド
-echo "💡 フロントエンドサーバーを手動で起動する場合は以下のコマンドを実行してください:"
+# フロントエンドサーバーの起動コマンド
+echo "💡 フロントエンドサーバーを起動するため以下のコマンドを実行してください:"
 echo "   cd /workspace/services/web"
 echo "   pnpm run dev"
-
-cd /workspace
 
 # 起動したサービスの確認
 echo ""

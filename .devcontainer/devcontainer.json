@@ -34,19 +34,26 @@ RUN /root/.volta/bin/volta install node@lts && \
   "customizations": {
     "vscode": {
       "extensions": [
+        "GitHub.copilot",
+        "EditorConfig.EditorConfig",
+        "Anthropic.claude-code",
+        "openai.chatgpt",
+        "GitHub.copilot-chat",
         "ms-python.python",
         "ms-python.black-formatter",
         "ms-python.isort",
         "charliermarsh.ruff",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
         "bradlc.vscode-tailwindcss",
         "ms-vscode.vscode-typescript-next",
         "esbenp.prettier-vscode",
         "ms-vscode.vscode-json",
         "redhat.vscode-yaml",
         "ms-azuretools.vscode-docker",
-        "GitHub.copilot",
-        "GitHub.copilot-chat"
-      ],
+        "anthropic.claude-code",
+        "d3j.gemini-cli-on-vscode"
+    ],
       "settings": {
         "python.defaultInterpreterPath": "/usr/bin/python3",
         "python.formatting.provider": "black",
