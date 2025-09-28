@@ -60,10 +60,12 @@ echo "📦 Installing Claude Code..."
 npm install -g @anthropic-ai/claude-code
 echo "✅ Claude Code installed successfully"
 
-# Codex CLIのインストール
-echo "📦 Installing Codex CLI..."
-npm install -g @openai/codex
-echo "✅ Codex CLI installed successfully"
+# uv のインストール（Serena MCP用）
+curl -LsSf https://astral.sh/uv/install.sh | sh
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Serena MCPサーバーのインストール
+uvx --from git+https://github.com/oraios/serena serena --version || echo "Serena installation check"
 
 echo "✅ PostCreateCommand.sh が完了しました！"
 echo ""
