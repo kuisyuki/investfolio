@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from presentation.routes import health, auth, stock
+from presentation.routes import health, auth, stock, exchange_rate
 
 app = FastAPI(
     title="InvestFolio API",
@@ -21,6 +21,7 @@ app.add_middleware(
 app.include_router(health.router)
 app.include_router(auth.router)
 app.include_router(stock.router)
+app.include_router(exchange_rate.router)
 
 @app.get("/")
 async def root():
