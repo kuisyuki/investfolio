@@ -7,8 +7,9 @@ from infrastructure.database import Base
 class UserStockModel(Base):
     __tablename__ = "user_stocks"
 
-    id = Column(String(36), primary_key=True)
-    user_id = Column(String(36), ForeignKey("users.id"), nullable=False)
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    user_stock_id = Column(Integer, nullable=True)
+    user_id = Column(Integer, ForeignKey("users.user_id"), nullable=False)
     ticker_symbol = Column(String(20), nullable=False)
     quantity = Column(Integer, nullable=False)
     acquisition_price = Column(Numeric(10, 2), nullable=False)

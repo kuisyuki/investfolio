@@ -1,4 +1,3 @@
-import uuid
 from typing import Optional
 
 from domain.entities.auth import User
@@ -16,7 +15,6 @@ class SQLUserRepository(UserRepository):
     async def create(self, user: User) -> User:
         """ユーザーを作成"""
         user_model = UserModel(
-            id=str(uuid.uuid4()),
             username=user.username,
             email=user.email,
             password_hash=user.password_hash,
@@ -29,9 +27,14 @@ class SQLUserRepository(UserRepository):
         self.db.commit()
         self.db.refresh(user_model)
 
+        # user_idにidと同じ値を設定
+        user_model.user_id = user_model.id
+        self.db.commit()
+        self.db.refresh(user_model)
+
         return self._model_to_entity(user_model)
 
-    async def get_by_id(self, user_id: str) -> Optional[User]:
+    async def get_by_id(self, user_id: int) -> Optional[User]:
         """IDでユーザーを取得"""
         user_model = self.db.query(UserModel).filter(UserModel.id == user_id).first()
         return self._model_to_entity(user_model) if user_model else None
@@ -69,6 +72,7 @@ class SQLUserRepository(UserRepository):
             username=model.username,
             email=model.email,
             password_hash=model.password_hash,
+            user_id=model.user_id,
             full_name=model.full_name,
             is_active=model.is_active,
             is_verified=model.is_verified,
