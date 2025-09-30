@@ -4,11 +4,17 @@ import { useAuth } from '../contexts/AuthContext'
 import Link from 'next/link'
 
 export default function AuthenticatedLayout({ children }: { children: React.ReactNode }) {
-  const { isAuthenticated, logout } = useAuth()
+  const { isAuthenticated, isLoading, logout } = useAuth()
 
-  // if (!isAuthenticated) {
-  //   return null
-  // }
+  // Show nothing while checking authentication
+  if (isLoading) {
+    return null
+  }
+
+  // Redirect will be handled by AuthContext
+  if (!isAuthenticated) {
+    return null
+  }
 
   return (
     <>

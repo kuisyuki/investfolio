@@ -27,7 +27,8 @@ class RegisterUserUseCase:
 
         # ユーザーエンティティを作成
         user = User(
-            id="",  # リポジトリで生成される
+            id=None,  # データベースで自動生成される
+            user_id=None,  # リポジトリ層でidと同じ値を設定
             username=username,
             email=email,
             password_hash=password_hash,

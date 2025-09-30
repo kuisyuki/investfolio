@@ -7,10 +7,11 @@ from typing import Optional
 class User:
     """ユーザーエンティティ"""
 
-    id: str
+    id: Optional[int]
     username: str
     email: str
     password_hash: str
+    user_id: Optional[int] = None
     full_name: Optional[str] = None
     is_active: bool = True
     is_verified: bool = False

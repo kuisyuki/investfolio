@@ -35,7 +35,8 @@ class UserCreateRequest(BaseModel):
 class UserResponse(BaseModel):
     """ユーザーレスポンススキーマ"""
 
-    id: str
+    id: int
+    user_id: int
     username: str
     email: str
     full_name: Optional[str]
@@ -46,3 +47,18 @@ class UserResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class LoginRequest(BaseModel):
+    """ログインリクエストスキーマ"""
+
+    email: EmailStr = Field(..., description="メールアドレス")
+    password: str = Field(..., min_length=8, max_length=100, description="パスワード")
+
+
+class LoginResponse(BaseModel):
+    """ログインレスポンススキーマ"""
+
+    access_token: str = Field(..., description="アクセストークン")
+    token_type: str = Field(default="bearer", description="トークンタイプ")
+    user: UserResponse = Field(..., description="ユーザー情報")

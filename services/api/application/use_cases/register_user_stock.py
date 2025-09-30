@@ -9,7 +9,7 @@ class RegisterUserStockUseCase:
     def __init__(self, user_stock_repository: UserStockRepository):
         self.user_stock_repository = user_stock_repository
 
-    async def execute(self, user_id: str, request: UserStockCreateRequest) -> UserStock:
+    async def execute(self, user_id: int, request: UserStockCreateRequest) -> UserStock:
         """ユースケースの実行"""
 
         # 今後、ここにビジネスロジックを追加できる
@@ -17,6 +17,7 @@ class RegisterUserStockUseCase:
 
         user_stock_to_create = UserStock(
             id=None,  # IDはリポジトリ層で生成される
+            user_stock_id=None,  # リポジトリ層でidと同じ値を設定
             user_id=user_id,
             ticker_symbol=request.ticker_symbol,
             quantity=request.quantity,

@@ -13,7 +13,7 @@ class UserRepository(ABC):
         pass
 
     @abstractmethod
-    async def get_by_id(self, user_id: str) -> Optional[User]:
+    async def get_by_id(self, user_id: int) -> Optional[User]:
         """IDでユーザーを取得"""
         pass
 

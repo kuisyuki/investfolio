@@ -7,8 +7,9 @@ from typing import Optional
 class UserStock:
     """保有株エンティティ"""
 
-    id: str
-    user_id: str
+    id: Optional[int]
+    user_stock_id: Optional[int]
+    user_id: int
     ticker_symbol: str
     quantity: int
     acquisition_price: float
